@@ -29,7 +29,7 @@ pip install -r requirements.txt
 ```
 
 3. Replace the API key in `keyword_gen.py`:
-   - Sign up at [API Ninjas](https://api-ninjas.com/)
+   - Sign up at [API Ninjas](https://api-ninjas.com/api/randomword)
    - Replace `'YOUR_API_KEY'` with your actual API key
 
 ## Usage
