@@ -1,13 +1,15 @@
 # Bing Rewards Automation
 
 ## Overview
-This project automates Bing searches to help earn Bing Rewards points by generating random keywords and automatically searching them using Microsoft Edge.
+This project automates Bing searches to help earn Bing Rewards points by generating random keywords and automatically searching them using Microsoft Edge with human-like typing behavior.
 
 ## Features
 - Generates 30 random keywords using an API
-- Automatically opens Bing searches for each keyword
-- Provides a 30-second delay between searches
-- Uses Microsoft Edge browser for searching
+- Automatically opens Bing.com in Microsoft Edge
+- Types each keyword letter by letter with realistic timing
+- Provides random delays between searches (25-35 seconds)
+- Controls the mouse and keyboard directly using PyAutoGUI
+- Simulates human-like search behavior
 
 ## Prerequisites
 - Python 3.x
@@ -19,7 +21,7 @@ This project automates Bing searches to help earn Bing Rewards points by generat
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/bing-rewards.git
+git clone https://github.com/alex-away/bing-rewards.git
 cd bing-rewards
 ```
 
@@ -34,32 +36,41 @@ pip install -r requirements.txt
 
 ## Usage
 
-1. Generate Keywords:
-```bash
-python keyword_gen.py
-```
-This script will:
-- Fetch 30 random words from API Ninjas
-- Save the words to `keywords.txt`
-
-2. Run Bing Searches:
+Simply run the Bing search script:
 ```bash
 python bing_search.py
 ```
-This script will:
-- Read keywords from `keywords.txt`
-- Open each keyword in a Bing search using Microsoft Edge
-- Wait 30 seconds between searches
+
+The script will automatically:
+1. Generate 30 random keywords using API Ninjas
+2. Open Microsoft Edge browser to Bing.com
+3. For each keyword:
+   - Type the keyword letter by letter like a human
+   - Press Enter to search
+   - Wait a random period between searches (25-35 seconds)
+4. Close the browser after all searches are complete
+
+You can also run the keyword generation separately if needed:
+```bash
+python keyword_gen.py
+```
+
+## Important Notes About PyAutoGUI
+- **DO NOT move your mouse during script execution**
+- PyAutoGUI has a safety feature: move your mouse to a corner of the screen to abort
+- The script needs to be able to control your mouse and keyboard
+- Close other applications before running to avoid interference
 
 ## Configuration
-- Modify the Edge executable path in `bing_search.py` if needed
-- Adjust the number of keywords in `keyword_gen.py`
-- Customize search interval in `bing_search.py`
+- Adjust typing speed in the `human_type` function in `bing_search.py`
+- Modify wait times between searches in `bing_search.py`
+- Customize the number of keywords in `keyword_gen.py`
 
 ## Notes
 - Ensure Microsoft Edge is installed
 - The script is intended for educational purposes
 - Comply with Bing Rewards program terms of service
+- Automated behavior that appears too robotic might trigger security measures
 
 ## License
 This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
