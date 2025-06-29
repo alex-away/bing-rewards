@@ -25,20 +25,32 @@ git clone https://github.com/alex-away/bing-rewards.git
 cd bing-rewards
 ```
 
-2. Install required dependencies:
+2. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) (if not already installed):
 ```bash
-pip install -r requirements.txt
+pip install uv
 ```
 
-3. Replace the API key in `keyword_gen.py`:
+3. Create and activate a virtual environment using uv:
+```bash
+uv venv
+```
+
+Follow the instructions provided by uv to activate the virtual environment for your platform.
+
+4. Install required dependencies using uv:
+```bash
+uv pip install -r pyproject.toml
+```
+
+5. Replace the API key in `keyword_gen.py`:
    - Sign up at [API Ninjas](https://api-ninjas.com/api/randomword)
    - Replace `'YOUR_API_KEY'` with your actual API key
 
 ## Usage
 
-Simply run the Bing search script:
+Run the main script to generate keywords and perform Bing searches:
 ```bash
-python bing_search.py
+uv run main.py
 ```
 
 The script will automatically:
@@ -49,11 +61,6 @@ The script will automatically:
    - Press Enter to search
    - Wait a random period between searches (25-35 seconds)
 4. Close the browser after all searches are complete
-
-You can also run the keyword generation separately if needed:
-```bash
-python keyword_gen.py
-```
 
 ## Important Notes About PyAutoGUI
 - **DO NOT move your mouse during script execution**

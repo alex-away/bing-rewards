@@ -1,5 +1,4 @@
 import time
-import keyword_gen
 import random
 import pyautogui
 import subprocess
@@ -39,7 +38,7 @@ def open_edge_with_bing():
         return False
 
 # Main function to run the script.
-def main():
+def run_bing_search():
     keywords = read_keywords('keywords.txt')
     
     if not keywords:
@@ -116,6 +115,3 @@ def main():
     
     finally:
         print("Process completed.")
-
-if __name__ == "__main__":
-    main()
